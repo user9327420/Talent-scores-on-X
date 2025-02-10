@@ -1,5 +1,5 @@
 
-var url = '', api_key = '';
+var url = '', api_key = ''; // add API KEY HERE
 const tabs = await chrome.tabs.query({url: ["https://x.com/*"]});
 document.querySelector('h1').innerHTML = 'Open on an X profile';
 
