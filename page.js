@@ -4,7 +4,7 @@ function talentScore() {
 	url = window.location.href.replace('https://x.com/', '');
 	var keyword = document.title;
 
-	var api_key = ''; // add API KEY HERE
+	var api_key = 'bc3f61b1cbb4d73d5b8fec8f5f8a7bb8f6981fe3291765b6ee51e2b7a096'; // add API KEY HERE
 
 	// checking if page is a X profile
 	console.log('checking if page is a X profile');
@@ -26,15 +26,28 @@ function talentScore() {
 
 							console.log('score', data.score);
 
-							var talent_score = document.createElement('div');
+							// looking if the element already exists from another profile loaded first
+							var talent_score = document.querySelector('.talent-score');
+							if (talent_score == undefined) {
+								talent_score = document.createElement('div');
+							}
+
 							talent_score.innerHTML = data.score.toString();
-							talent_score.classList.add('talent_score');
+							talent_score.classList.add('talent-score');
 							talent_score.setAttribute('style', 'color: rgb(231, 233, 234); background: #383838; border-radius: 3px; display: inline; padding: 0px 5px; margin: 0px 8px;');
 
 							console.log('talent_score', talent_score);
 							document.body.querySelector('[data-testid="UserName"]').querySelector('span').querySelector('span').appendChild(talent_score);
+						} else {
+							// removing score if none found and the element already exists
+							var talent_score = document.querySelector('.talent-score');
+							if (talent_score != undefined) { talent_score.parentNode.removeChild(talent_score); }
 						}
 					}
+				} else {
+					// removing score if there is error fetching api data and the element already exists
+					var talent_score = document.querySelector('.talent-score');
+					if (talent_score != undefined) { talent_score.parentNode.removeChild(talent_score); }
 				}
 			}
 		}
@@ -59,3 +72,15 @@ function talentScore() {
 
 // timeout to wait for the profile to load
 window.setTimeout(talentScore, 2000);
+var url = '';
+
+// helps listen for when a profile is loaded without reloading the page
+// as X sometimes loads profiles on top of the current page
+window.navigation.addEventListener('navigate', function() {
+	window.setTimeout(function() {
+		if (url != window.location.href.replace('https://x.com/', '')) {
+			console.log('new profile loaded without full page reload');
+			talentScore();
+		}
+	}, 500);
+});
