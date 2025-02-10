@@ -4,7 +4,7 @@ function talentScore() {
 	url = window.location.href.replace('https://x.com/', '');
 	var keyword = document.title;
 
-	var api_key = 'bc3f61b1cbb4d73d5b8fec8f5f8a7bb8f6981fe3291765b6ee51e2b7a096'; // add API KEY HERE
+	var api_key = ''; // add API KEY HERE
 
 	// checking if page is a X profile
 	console.log('checking if page is a X profile');
