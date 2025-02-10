@@ -10,6 +10,7 @@ html {
 a { text-decoration: none; }
 
 body {
+	/* this is the size of the popup */
 	width: 400px;
 	height: 250px;
 	display: flex;
