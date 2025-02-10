@@ -4,7 +4,7 @@ function talentScore() {
 	url = window.location.href.replace('https://x.com/', '');
 	var keyword = document.title;
 
-	var api_key = '';
+	var api_key = ''; // add API KEY HERE
 
 	// checking if page is a X profile
 	console.log('checking if page is a X profile');
