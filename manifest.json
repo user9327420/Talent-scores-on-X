@@ -1,0 +1,16 @@
+{
+	"name": "Talent Score on X",
+	"description": "Display Talent scores on X.",
+	"version": "1.0",
+	"manifest_version": 3,
+	"content_scripts": [
+		{
+			"matches": ["https://x.com/*"],
+			"js": ["page.js"]
+		}	
+	],
+	"host_permissions": ["https://x.com/*"],
+	"action": {
+		"default_popup": "popup.html"
+	}
+}

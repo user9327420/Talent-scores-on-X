@@ -1,0 +1,42 @@
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	border-color: #000;
+}
+
+a { text-decoration: none; }
+
+body {
+	width: 400px;
+	height: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background: #000;
+	color: white;
+	text-align: center;
+	font-size: 12px !important;
+	font-family: TwitterChirp, -apple-system, Roboto, Arial;
+}
+
+.score {
+	font-size: 40px;
+	letter-spacing: 2px;
+	color: white;
+}
+
+.name {
+	font-size: 20px;
+    padding-top: 9px;
+    padding-bottom: 8px;
+    color: white;
+}
+
+.talent-id {
+	color: #c3c3c3;
+	font-size: 14px;
+}
